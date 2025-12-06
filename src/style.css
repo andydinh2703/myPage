@@ -1,0 +1,11 @@
+/* Importing tailwind */
+@import "tailwindcss";
+
+/* Custom font */
+@font-face {
+  font-family: 'excalidraw';
+  src: url('$lib/assets/excalidraw.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
