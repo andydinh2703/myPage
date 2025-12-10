@@ -1,16 +1,25 @@
 <script>
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-
-	// Define your projects data
+	import BlogCard from '$lib/components/BlogCard.svelte';
+	// Define project data
 	const project = 
     {
-      title: 'Portfolio Website',
-      description: 'A personal portfolio built with SvelteKit',
-      imageUrl: '/images/portfolio.jpg', // or empty '' for placeholder
-      techStack: ['SvelteKit', 'Tailwind', 'TypeScript'],
-      projectUrl: 'https://github.com/yourusername/project',
-      date: 'December 2024'
+      title: 'Dough Flow',
+      description: 'A machine learning forecasting system for Blue Heron bakery in Penn Yann, NY',
+      imageUrl: '', // or empty '' for placeholder
+      techStack: ['Python', 'pandas', 'PyCaret', 'Streamlit'],
+      projectUrl: 'https://github.com/andydinh2703/DoughFlow',
+      date: 'December 2025'
     }
+	// Define blog data
+	const blog = {
+		title: 'My IRONMAN Training Journey',
+		shortdes: 'Documenting my preparation for IRONMAN 70.3 - the training, nutrition, and mental challenges.',
+		imageUrl: '', // leave empty for placeholder, or add image path
+		date: 'December 2025',
+		slug: 'ironman-training',
+		tags: ['Fitness', 'IRONMAN', 'Personal']
+	};
 </script>
 
 
@@ -69,7 +78,30 @@
 
 
 	</div>
-  </div>
+</div>
 
+
+<!-- Blog section -->
+<div id="blog" class="py-4 lg:py-15 px-6 bg-white">
+	<div class="max-w-6xl mx-auto">
+		<!-- heading -->
+		 <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-10">
+			JOURNEY
+		 </h2>
+
+		 <!-- grid layout -->
+		  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<BlogCard
+				title = {blog.title} 
+				shortdes = {blog.shortdes}
+				imageUrl = {blog.imageUrl}
+				date = {blog.date}
+				slug = {blog.slug}
+				tags = {blog.tags}
+			/>
+
+		  </div>
+	</div>
+</div>
 
 

@@ -16,7 +16,7 @@
 		<!-- Desktop Navigation Links (hidden on mobile) -->
 		<div class="hidden md:flex gap-8">
 			<a href="#projects" class="text-base text-gray-600 hover:text-[#D97946] transition-colors">Projects</a>
-			<a href="/blog" class="text-base text-gray-600 hover:text-[#D97946] transition-colors">Blog</a>
+			<a href="#blog" class="text-base text-gray-600 hover:text-[#D97946] transition-colors">Blog</a>
 		</div>
 
 		<!-- Hamburger Menu Button (visible on mobile only) -->
@@ -51,7 +51,7 @@
 					Projects
 				</a>
 				<a
-					href="/blog"
+					href="#blog"
 					onclick={toggleMenu}
 					class="block text-base text-gray-600 hover:text-[#D97946] transition-colors py-2"
 				>
