@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
+	export let data;
+
 	// Define project data
 	const project = 
     {
@@ -11,15 +13,6 @@
       projectUrl: 'https://github.com/andydinh2703/DoughFlow',
       date: 'December 2025'
     }
-	// Define blog data
-	const blog = {
-		title: 'My First Blog Post',
-		shortdes: 'This is a sample blog post to test mdsvex setup. We\'re building something awesome!',
-		imageUrl: '',
-		date: '2025-12-10',
-		slug: 'my-first-post',
-		tags: ['SvelteKit', 'Tutorial', 'Web Dev']
-	};
 </script>
 
 
@@ -91,18 +84,19 @@
 
 		 <!-- grid layout -->
 		  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-			<a href="/blog/{blog.slug}">
-				<BlogCard
-					title = {blog.title} 
-					shortdes = {blog.shortdes}
-					imageUrl = {blog.imageUrl}
-					date = {blog.date}
-					slug = {blog.slug}
-					tags = {blog.tags}
-				/>
-			</a>
-			
 
+			{#each data.posts as blog }
+				<a href="/blog/{blog.slug}">
+					<BlogCard
+						title = {blog.title} 
+						shortdes = {blog.shortdes}
+						imageUrl = {blog.imageUrl}
+						date = {blog.date}
+						slug = {blog.slug}
+						tags = {blog.tags}
+					/>
+				</a>
+			{/each}
 		  </div>
 	</div>
 </div>
