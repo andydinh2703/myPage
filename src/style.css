@@ -1,5 +1,6 @@
 /* Importing tailwind */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Custom font */
 @font-face {

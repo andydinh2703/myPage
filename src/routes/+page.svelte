@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	// Define project data
@@ -13,12 +13,12 @@
     }
 	// Define blog data
 	const blog = {
-		title: 'My IRONMAN Training Journey',
-		shortdes: 'Documenting my preparation for IRONMAN 70.3 - the training, nutrition, and mental challenges.',
-		imageUrl: '', // leave empty for placeholder, or add image path
-		date: 'December 2025',
-		slug: 'ironman-training',
-		tags: ['Fitness', 'IRONMAN', 'Personal']
+		title: 'My First Blog Post',
+		shortdes: 'This is a sample blog post to test mdsvex setup. We\'re building something awesome!',
+		imageUrl: '',
+		date: '2025-12-10',
+		slug: 'my-first-post',
+		tags: ['SvelteKit', 'Tutorial', 'Web Dev']
 	};
 </script>
 
@@ -91,14 +91,17 @@
 
 		 <!-- grid layout -->
 		  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-			<BlogCard
-				title = {blog.title} 
-				shortdes = {blog.shortdes}
-				imageUrl = {blog.imageUrl}
-				date = {blog.date}
-				slug = {blog.slug}
-				tags = {blog.tags}
-			/>
+			<a href="/blog/{blog.slug}">
+				<BlogCard
+					title = {blog.title} 
+					shortdes = {blog.shortdes}
+					imageUrl = {blog.imageUrl}
+					date = {blog.date}
+					slug = {blog.slug}
+					tags = {blog.tags}
+				/>
+			</a>
+			
 
 		  </div>
 	</div>
