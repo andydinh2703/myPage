@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
+	import runningIcon from '$lib/assets/running.png';
+	import cyclingIcon from '$lib/assets/cyclingg.png';
 	export let data;
 
 	// Define project data
@@ -13,6 +15,12 @@
       projectUrl: 'https://github.com/andydinh2703/DoughFlow',
       date: 'December 2025'
     }
+
+	const meter_to_mile = 0.00062137;
+
+   function mile(meters: number) {
+      return (meters * meter_to_mile).toFixed(1);
+   }
 </script>
 
 
@@ -49,8 +57,8 @@
 
 
 <!-- Project section -->
-<div id="projects" class="py-4 lg:py-15 px-6 bg-[#F5F1E8]">
-	<div class="max-w-6xl mx-auto">
+<div id="projects" class="py-4 pb-10 lg:py-15 px-6 bg-[#F5F1E8] scroll-mt-20">
+	<div class="max-w-6xl mx-auto ">
 	  <!-- heading -->
 	  <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-10">
 		PROJECTS
@@ -75,12 +83,31 @@
 
 
 <!-- Blog section -->
-<div id="blog" class="py-4 lg:py-15 px-6 bg-white">
+<div id="blog" class="py-4 pb-10 lg:py-15 px-6 bg-white scroll-mt-20">
 	<div class="max-w-6xl mx-auto">
 		<!-- heading -->
-		 <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-10">
+		 <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-5">
 			JOURNEY
 		 </h2>
+		 <div class="flex flex-col items-center mb-5 md:flex-row md:justify-center md:gap-15">
+			
+			{#if data.stravaStats}
+				<div class="flex flex-row">
+					<img src={runningIcon} alt="Running icon" class="w-6 h-6 inline-block md:w-8 md:h-8 md:-my-1" />
+					<h3 class="text-2xl font-extrabold text-gray-800 md:text-3xl" style="font-family: 'JetBrains Mono', regular;" >{mile(data.stravaStats.all_run_totals.distance)} mi </h3>
+				</div>
+				
+				<div class="flex flex-row">
+					<img src={cyclingIcon} alt="Running icon" class="w-8 h-8 inline-block -my-1 md:w-11 md:h-11 md:-my-2" />
+					<h3 class="text-2xl md:text-3xl font-extrabold text-gray-800" style="font-family: 'JetBrains Mono', regular;" >{mile(data.stravaStats.all_ride_totals.distance)} mi </h3>
+				</div>
+				
+			{:else }
+			<p>Could not load Strava stats...</p>
+
+			{/if}
+		 </div>
+		 
 
 		 <!-- grid layout -->
 		  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
