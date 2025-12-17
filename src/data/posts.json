@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "slug": "my-first-post",
+      "title": "My First Blog Post",
+      "shortdes": "This is a sample blog post to test mdsvex setup. We're building something awesome!",
+      "date": "2025-12-10",
+      "tags": [
+        "SvelteKit",
+        "Tutorial",
+        "Web Dev"
+      ],
+      "imageUrl": ""
+    }
+  ]
+}

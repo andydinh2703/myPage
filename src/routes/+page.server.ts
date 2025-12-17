@@ -1,5 +1,5 @@
 import { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN, STRAVA_ATHLETE_ID } from '$env/static/private';
-import type { PageServerLoad } from './$types';
+import { getPosts } from '$lib/server/posts';
 
 // === Functions to fetch Strava data
 interface StravaStats {
@@ -55,22 +55,7 @@ interface StravaStats {
   }
 
 export const load = async () => {
-    // use import.meta.glob to find all .md files in the source folder
-    const postFiles = import.meta.glob('/src/posts/*.md', {eager: true});
-
-    // get all the files into an array
-    const posts = Object.entries(postFiles).map(([path, file]) => {
-        //extract slug from path
-        const slug = path.split('/').pop()?.replace('.md','') ?? '';
-
-        // get meta data from the file
-        const metadata = (file as any).metadata;
-
-        return {
-            slug,
-            ...metadata
-        };
-    });
+    const posts = await getPosts();
 
     // Fetching strava data
     try {
@@ -78,19 +63,14 @@ export const load = async () => {
         const stravaStats = await getAthleteStats(accessToken);
 
         return {
-            posts: posts.sort((a,b) =>
-                new Date(b.date).getTime() - new Date(a.date).getTime()
-            ),
+            posts,
             stravaStats
         };
     }
     catch (error) {
         console.error("Error fetching Strava stats: ", error);
-        //sort posts by date 
         return {
-            posts: posts.sort((a,b) =>
-                new Date(b.date).getTime() - new Date(a.date).getTime()
-            ),
+            posts,
             stravaStats: null
         };
     }
