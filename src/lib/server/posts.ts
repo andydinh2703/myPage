@@ -70,7 +70,9 @@ export async function syncPosts(): Promise<PostMeta[]> {
 
 // Get all posts from JSON
 export async function getPosts(): Promise<PostMeta[]> {
-  return syncPosts();
+  const data = await readFile(DATA_FILE, 'utf-8');
+  const posts: PostMeta[] = JSON.parse(data).posts;
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 // Get single post metadata
