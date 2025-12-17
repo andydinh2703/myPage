@@ -1,0 +1,13 @@
+{
+    "projects": [
+      {
+        "title": "Dough Flow",
+        "description": "A machine learning forecasting system for Blue Heron bakery in Penn Yann, NY",
+        "imageUrl": "/images/dough_flow_image.png",
+        "techStack": ["Python", "pandas", "PyCaret", "Streamlit"],
+        "projectUrl": "https://github.com/andydinh2703/DoughFlow",
+        "date": "December 2025"
+      }
+    ]
+  }
+  

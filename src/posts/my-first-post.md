@@ -1,35 +1,26 @@
 ---
-title: My First Blog Post
-shortdes: This is a sample blog post to test mdsvex setup. We're building something awesome!
-date: 2025-12-10
+title: My First Half Marathon
+shortdes: A 7-week commitment of training to become a better person.
+date: 2025-08-10
 tags:
-  - SvelteKit
-  - Tutorial
-  - Web Dev
-imageUrl: ""
+  - GO ONE MORE
+  - Endurance
+  - Commit
+imageUrl: "/images/geneva_half.jpg"
 ---
 
-# Welcome to My Blog
+![image](/images/geneva_half.jpg)
 
-This is my first blog post using **mdsvex**!
+# Why am I running?
 
-# What is mdsvex?
+Since leaving the Hobart Volleyball team, I wanted to find something else that actually would bring my joy and health. I embrace doing hard things, and running let me do that.
 
-mdsvex allows us to write blog posts in simple markdown and have them rendered as Svelte components. This means:
+![image](/images/geneva_half2.jpg)
 
-- Easy to write content
-- Server-side rendered (great for SEO)
-- Can embed Svelte components inside markdown!
+# Why Geneva Half Marathon?
 
-## Code Example
+I never though about running this long my entire life, but the more I run, the more I love it. I believe that life is only good when it has meaning and a goal to chase. Therefore, I committed to this challenge. I've trained for 7 weeks with weekly average 30-35 miles. I enjoyed every single run of this prep. I finished the race within 1:58:47 which was one minute off from my goal but I will come back stronger next time. 
 
-Here's some code:
+![image](/images/julie_lincoln.jpg)
 
-```javascript
-const greeting = "Hello, World!";
-console.log(greeting);
-```
-
-## What's Next?
-
-Stay tuned for more posts about my projects and learning journey!
+**I'm thankful for this prep for making me not only a better runner but a better person, and also for all the people have been cheering and supporting my journey.**

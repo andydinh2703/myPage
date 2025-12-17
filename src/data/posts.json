@@ -2,15 +2,15 @@
   "posts": [
     {
       "slug": "my-first-post",
-      "title": "My First Blog Post",
-      "shortdes": "This is a sample blog post to test mdsvex setup. We're building something awesome!",
-      "date": "2025-12-10",
+      "title": "My First Half Marathon",
+      "shortdes": "A 7-week commitment of training to become a better person.",
+      "date": "2025-08-10",
       "tags": [
-        "SvelteKit",
-        "Tutorial",
-        "Web Dev"
+        "GO ONE MORE",
+        "Endurance",
+        "Commit"
       ],
-      "imageUrl": ""
+      "imageUrl": "/images/geneva_half.jpg"
     }
   ]
 }

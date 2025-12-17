@@ -3,18 +3,7 @@
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import runningIcon from '$lib/assets/running.png';
 	import cyclingIcon from '$lib/assets/cyclingg.png';
-	export let data;
-
-	// Define project data
-	const project = 
-    {
-      title: 'Dough Flow',
-      description: 'A machine learning forecasting system for Blue Heron bakery in Penn Yann, NY',
-      imageUrl: '', // or empty '' for placeholder
-      techStack: ['Python', 'pandas', 'PyCaret', 'Streamlit'],
-      projectUrl: 'https://github.com/andydinh2703/DoughFlow',
-      date: 'December 2025'
-    }
+	let { data } = $props();
 
 	const meter_to_mile = 0.00062137;
 
@@ -57,7 +46,7 @@
 
 
 <!-- Project section -->
-<div id="projects" class="py-4 pb-10 lg:py-15 px-6 bg-[#F5F1E8] scroll-mt-20">
+<div id="projects" class="py-4 pb-10 lg:py-15 px-6 bg-[#F5F1E8] scroll-mt-32">
 	<div class="max-w-6xl mx-auto ">
 	  <!-- heading -->
 	  <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-10">
@@ -65,6 +54,7 @@
 	  </h2>
 	  
 	  <!-- grid layout -->
+	{#each data.projects as project}
 	   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		<ProjectCard 
 		title={project.title}
@@ -76,6 +66,7 @@
 	  />
 
 	   </div>
+	{/each}
 
 
 	</div>

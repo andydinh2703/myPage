@@ -28,7 +28,7 @@
         <!-- Date meta -->
     {#if date} 
         <p class= "text-sm text-gray-500 mb-2" style="font-family: 'JetBrains Mono', monospace;">
-            {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {new Date(date + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
     {/if}
 

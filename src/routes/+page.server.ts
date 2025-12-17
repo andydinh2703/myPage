@@ -1,5 +1,6 @@
 import { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN, STRAVA_ATHLETE_ID } from '$env/static/private';
 import { getPosts } from '$lib/server/posts';
+import { getProjects } from '$lib/server/projects';
 
 // === Functions to fetch Strava data
 interface StravaStats {
@@ -55,7 +56,8 @@ interface StravaStats {
   }
 
 export const load = async () => {
-    const posts = await getPosts();
+    const posts = await getPosts(); // get posts
+    const projects = await getProjects(); // get projects
 
     // Fetching strava data
     try {
@@ -64,6 +66,7 @@ export const load = async () => {
 
         return {
             posts,
+            projects,
             stravaStats
         };
     }
@@ -71,6 +74,7 @@ export const load = async () => {
         console.error("Error fetching Strava stats: ", error);
         return {
             posts,
+            projects,
             stravaStats: null
         };
     }
