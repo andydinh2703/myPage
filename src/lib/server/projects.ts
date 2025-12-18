@@ -9,7 +9,7 @@ export interface ProjectMeta {
     date: string;
 }
 
-// Get projects from JSON (imported at build time)
+// Get projects from JSON 
 export async function getProjects(): Promise<ProjectMeta[]> {
     return projectsData.projects;
 }
