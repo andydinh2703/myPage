@@ -50,7 +50,7 @@ function parseFrontmatter(markdown: string): Omit<PostMeta, 'slug'> {
     return meta as Omit<PostMeta, 'slug'>;
 }
 
-// Sync markdown frontmatter to JSON
+// Sync markdown frontmatter to JSON | Will be called at buildtime via script
 export async function syncPosts(): Promise<PostMeta[]> {
   const files = await readdir(POSTS_DIR);
   const posts: PostMeta[] = [];
@@ -70,7 +70,8 @@ export async function syncPosts(): Promise<PostMeta[]> {
 
 // Get all posts - syncs from markdown first
 export async function getPosts(): Promise<PostMeta[]> {
-  return await syncPosts();
+  const data = await import('$lib/../data/posts.json');
+  return data.posts;
 }
 
 // Get single post metadata
