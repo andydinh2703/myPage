@@ -1,4 +1,8 @@
-import projectsData from '../../data/projects.json';
+import { readFile, writeFile } from 'fs/promises';
+import { join } from 'path';
+
+// declare data file
+const DATA_FILE = join(process.cwd(), 'src/data/projects.json');
 
 export interface ProjectMeta {
     title: string;
@@ -6,11 +10,12 @@ export interface ProjectMeta {
     imageUrl: string;
     techStack: string[];
     projectUrl: string;
-    date: string;
+    date:string;
 }
 
-// Get projects from JSON 
+// get project function
 export async function getProjects(): Promise<ProjectMeta[]> {
-    return projectsData.projects;
+    const data = await readFile(DATA_FILE, 'utf-8');
+    return JSON.parse(data).projects;
 }
 

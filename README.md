@@ -2,7 +2,9 @@
 
 # How can you run my project? 
 
-My project is online at: https://andydinh.vercel.app/
+My project is online at: https://andydinh.vercel.app/ (version for people in class to see | without local file storage)
+
+To run local version with local file storage: npm run dev -- --open
 
 # About my page
 
