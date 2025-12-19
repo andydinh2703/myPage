@@ -1,5 +1,3 @@
-import projectsData from '../../data/projects.json';
-
 export interface ProjectMeta {
     title: string;
     description: string;
@@ -9,8 +7,9 @@ export interface ProjectMeta {
     date: string;
 }
 
-// Get projects from JSON 
+// get project function - uses import so it works on Vercel
 export async function getProjects(): Promise<ProjectMeta[]> {
-    return projectsData.projects;
+    const data = await import('$lib/../data/projects.json');
+    return data.projects;
 }
 
